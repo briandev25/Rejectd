@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 
 const pool = mysql.createPool({
@@ -10,4 +10,4 @@ const pool = mysql.createPool({
 
 
 
-module.exports = pool;
+export default pool;

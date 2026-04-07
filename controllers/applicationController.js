@@ -1,4 +1,4 @@
-const pool = require('../database/db');
+import pool from '../database/db.js';
 // const Redis = require('redis');
 
 // const redisClient = Redis.createClient();
@@ -13,7 +13,7 @@ const pool = require('../database/db');
 //     await redisClient.connect();
 // })();
 
-exports.getApplications = async (req,res) =>{
+export const getApplications = async (req,res) =>{
     try{
 
         // const cashedApplications = await redisClient.get("applications");
@@ -32,7 +32,7 @@ exports.getApplications = async (req,res) =>{
     res.status(500).send(err.message);
    }
 }
-exports.addApplication = async (req,res) =>{
+export const addApplication = async (req,res) =>{
   const{ organisation,position,outcome,application_date } = req.body;
     try{
      const [result] = await pool.query("INSERT INTO application (organisation, position, outcome, application_date) VALUES(?, ?, ?, ?)",
@@ -44,7 +44,7 @@ exports.addApplication = async (req,res) =>{
         res.status(500).send(err.message)
     }
 }
-exports.updateApplication = async (req,res) =>{
+export const updateApplication = async (req,res) =>{
     const { id } = req.params;
     const fields = req.body;
     try{

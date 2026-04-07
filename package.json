@@ -4,7 +4,7 @@
   "description": "A backend for the rejectd app",
   "license": "ISC",
   "author": "Bryan Kiprop",
-  "type": "commonjs",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
